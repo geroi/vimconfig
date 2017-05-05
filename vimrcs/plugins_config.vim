@@ -48,6 +48,7 @@ map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+let g:ctrlp_regexp = 1
 
 
 """"""""""""""""""""""""""""""
@@ -74,14 +75,13 @@ set grepprg=/bin/grep\ -nH
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0
+let g:NERDTreeWinPos = "left"
+let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
@@ -105,7 +105,7 @@ let g:lightline = {
       \ }
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'powerline',
       \ 'active': {
       \   'left': [ ['mode', 'paste'],
       \             ['fugitive', 'readonly', 'filename', 'modified'] ],
@@ -149,6 +149,9 @@ let g:syntastic_python_checkers=['pyflakes']
 " Javascript
 let g:syntastic_javascript_checkers = ['jshint']
 
+" Ruby
+let g:syntastic_ruby_checkers = ['rubocop']
+
 " Go
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
@@ -168,3 +171,4 @@ nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
